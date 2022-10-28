@@ -1,5 +1,4 @@
 """api_with_restrictions URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
@@ -18,11 +17,13 @@ from django.urls import path, include
 
 from rest_framework.routers import DefaultRouter
 
-router = DefaultRouter()
-# TODO: подключите `AdvertisementViewSet`
+from advertisements.views import AdvertisementViewSet
 
+
+router = DefaultRouter()
+router.register('advertisements', AdvertisementViewSet, 'ads')
 
 urlpatterns = [
     path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
-]
+] + router.urls
