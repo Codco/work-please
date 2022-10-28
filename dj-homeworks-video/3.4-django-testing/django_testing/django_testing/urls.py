@@ -1,5 +1,5 @@
-"""django_testing URL Configuration
 
+"""django_testing URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
@@ -25,4 +25,4 @@ router.register("courses", CoursesViewSet, basename="courses")
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/v1/", include(router.urls)),
-]
+] + router.urls
